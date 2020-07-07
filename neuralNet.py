@@ -1,15 +1,22 @@
 import numpy as np
+from layer import Layer
 from neuron import Neuron
-from settings import layer_count
+from settings import layer_count, neuron_count, weights_table, bias_table
 
 class NeuralNetwork:
     def __init__(self):
-        weights = np.array([0, 1])
-        bias = 0
-        # Скрытый слой из 6 нейронов
-        self.hidden1 = Neuron(weights, bias)
-        self.hidden2 = Neuron(weights, bias)
-        self.hidden3 = Neuron(weights, bias)
-        self.hidden4 = Neuron(weights, bias)
-        self.hidden5 = Neuron(weights, bias)
-        self.hidden6 = Neuron(weights, bias)
+        self.neuralNet = []
+        for i in range(layer_count):
+            self.layer = Layer(i)
+            self.neuralNet.append(self.layer)
+
+    def processData(self, inputData):
+        tmpData = self.neuralNet[0].layerResult(inputData)
+        for i in range(1, len(self.neuralNet)):
+            tmpData = self.neuralNet[i].layerResult(tmpData)
+        return tmpData
+
+    def outNeuron(self, inputData):
+        out = Neuron(weights_table[layer_count], bias_table[layer_count])
+        result = out.feedForward(inputData)
+        return result

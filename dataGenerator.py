@@ -9,12 +9,12 @@ def getInputData():
     schedule = normalization(schedule)
     inputData.append(schedule)
     # Посещение преподавателя
-    techerVisit = [1] * 100
+    teacherVisit = np.array([1] * 100)
     # 3 раза преподаватель не явился на пару
     for i in range(3):
-        techerVisit[np.random.randint(0, 100)] = 0; 
-    techerVisit = normalization(techerVisit)
-    inputData.append(techerVisit)
+        teacherVisit[np.random.randint(0, 100)] = 0; 
+    teacherVisit = normalization(teacherVisit)
+    inputData.append(teacherVisit)
     # Номера пар. Пары с случайным номером
     numbers = np.random.randint(1, 9, 100) # Посещение
     numbers = normalization(numbers)

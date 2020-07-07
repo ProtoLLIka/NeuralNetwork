@@ -6,6 +6,6 @@ class Neuron:
         self.weights = weights # Веса нейрона 
         self.bias = bias # Смещение 
         
-    def feedforward(self, inputs):
+    def feedForward(self, inputs):
         total = np.dot(self.weights, inputs) + self.bias
         return sigmoid(total)
