@@ -11,8 +11,10 @@ class NeuralNetwork:
             self.neuralNet.append(self.layer)
 
     def process(self, data):
+        print('Layer 0')
         tmpData = self.neuralNet[0].layerResult(data)
         for i in range(1, len(self.neuralNet)):
+            print('Layer', i)
             tmpData = self.neuralNet[i].layerResult(tmpData)
         return tmpData
 

@@ -13,5 +13,6 @@ class Layer:
         result = []
         for i in self.neurons:
             result.append(i.feedForward(inputData))
+            print('Neuron -', i.weights)
         return result
 
