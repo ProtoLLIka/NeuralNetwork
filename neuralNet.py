@@ -10,13 +10,13 @@ class NeuralNetwork:
             self.layer = Layer(i)
             self.neuralNet.append(self.layer)
 
-    def processData(self, inputData):
-        tmpData = self.neuralNet[0].layerResult(inputData)
+    def process(self, data):
+        tmpData = self.neuralNet[0].layerResult(data)
         for i in range(1, len(self.neuralNet)):
             tmpData = self.neuralNet[i].layerResult(tmpData)
         return tmpData
 
-    def outNeuron(self, inputData):
+    def outNeuron(self, data):
         out = Neuron(weights_table[layer_count], bias_table[layer_count])
-        result = out.feedForward(inputData)
+        result = out.feedForward(data)
         return result

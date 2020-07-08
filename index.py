@@ -2,4 +2,4 @@ from neuralNet import NeuralNetwork
 from dataGenerator import getInputData
 net = NeuralNetwork()
 inputData = getInputData()
-print(net.outNeuron(net.processData(inputData)))
+print(net.outNeuron(net.process(inputData)))

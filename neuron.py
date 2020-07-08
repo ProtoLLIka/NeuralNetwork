@@ -8,4 +8,4 @@ class Neuron:
         
     def feedForward(self, inputs):
         total = np.dot(self.weights, inputs) + self.bias
-        return sigmoid(total)
+        return sigmoid(total) 
